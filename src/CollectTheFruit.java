@@ -4,7 +4,7 @@ import javalib.soundworld.World;
 import javalib.colors.*;
 import javalib.worldimages.FromFileImage;
 import javalib.worldimages.Posn;
-import javalib.worldimages.RectangleImage;
+//import javalib.worldimages.RectangleImage;
 import javalib.worldimages.TextImage;
 import javalib.worldimages.WorldEnd;
 import javalib.worldimages.WorldImage;
@@ -108,10 +108,6 @@ public class CollectTheFruit extends World {
         
         //Decrees Hunger Bar
         this.player.changeHunger(-1);
-        
-        if(this.numTicks > 10000) {
-            this.numTicks = 0;
-        }
         
         //Remove Powerups on the Screen that are behind the player
         //this.removePups(this.player.loc.x - 50);

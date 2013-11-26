@@ -1,7 +1,8 @@
-import javalib.colors.Black;
-import javalib.worldimages.CircleImage;
+//import javalib.colors.Black;
+//import javalib.worldimages.CircleImage;
+import javalib.worldimages.FromFileImage;
 import javalib.worldimages.Posn;
-import javalib.worldimages.RectangleImage;
+//import javalib.worldimages.RectangleImage;
 
 
 public class Player {
@@ -10,7 +11,7 @@ public class Player {
     int score; //Get points for every fruit, loose points for every sweet
     int level; //Just based directly on your score
     Posn loc;
-    CircleImage playerImage;
+    FromFileImage playerImage;
     
     final int maxHunger = 500;
     final int maxSpeed = 10;
@@ -20,7 +21,7 @@ public class Player {
         this.speed = speed;
         this.score = score;
         this.loc = loc;
-        this.playerImage = new CircleImage(this.loc, 50, new Black());
+        this.playerImage = new FromFileImage(this.loc, "wizard_pengiun.png");
     }
     
     Player() {
@@ -29,7 +30,7 @@ public class Player {
         this.speed = 6;
         this.score = 0;
         this.loc = new Posn(0, CollectTheFruit.height - 60);
-        this.playerImage = new CircleImage(this.loc, 50, new Black());
+        this.playerImage = new FromFileImage(this.loc, "wizard_penguin.png");
     }
     
     //determine if the player is dead

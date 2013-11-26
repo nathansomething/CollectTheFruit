@@ -1,10 +1,10 @@
-import java.awt.Color;
+//import java.awt.Color;
 
 //import javalib.colors.*;
 import javalib.worldimages.FromFileImage;
 import javalib.worldimages.Posn;
-import javalib.worldimages.RectangleImage;
-import javalib.worldimages.WorldImage;
+//import javalib.worldimages.RectangleImage;
+//import javalib.worldimages.WorldImage;
 
 
 public abstract class Powerup {

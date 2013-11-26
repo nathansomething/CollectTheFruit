@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/nathan/Documents/Northeastern Fall 2013/CS 2510 - Fundies 2/tester.jar"/>
+	<classpathentry kind="lib" path="/home/nathan/Documents/Northeastern Fall 2013/CS 2510 - Fundies 2/javalib-1.0.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
