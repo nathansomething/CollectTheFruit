@@ -29,7 +29,7 @@ public class Player {
         this.hunger = 700;
         this.speed = 6;
         this.score = 0;
-        this.loc = new Posn(0, CollectTheFruit.height - 60);
+        this.loc = new Posn(0, CollectTheFruit.height - 30);
         this.playerImage = new FromFileImage(this.loc, "wizard_penguin.png");
     }
     
@@ -95,6 +95,7 @@ public class Player {
     void move(int deltaXLoc, int deltaYloc) {
         this.loc.x += deltaXLoc;
         this.loc.y += deltaYloc;
+        this.playerImage.pinhole = this.loc;
     }
     
     int getX() {

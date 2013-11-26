@@ -118,8 +118,8 @@ public class CollectTheFruit extends World {
         switch(ke) {
         case " ":
             if(!this.isJumping) {
-                this.totalJumpTicks = 30;
-                this.pushForce = 10;
+                this.totalJumpTicks = 20;
+                this.pushForce = 20;
                 this.currentJumpTicks = this.totalJumpTicks;
                 this.isJumping = true;
             }
