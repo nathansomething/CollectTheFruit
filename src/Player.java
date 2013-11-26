@@ -5,14 +5,14 @@ import javalib.worldimages.RectangleImage;
 
 
 public class Player {
-    int hunger; //from 0 to 100
+    int hunger; //from 0 to 500
     int speed; //from 0 to 10
     int score; //Get points for every fruit, loose points for every sweet
     int level; //Just based directly on your score
     Posn loc;
     CircleImage playerImage;
     
-    final int maxHunger = 1000;
+    final int maxHunger = 500;
     final int maxSpeed = 10;
     
     Player(int hunger, int speed, int score, Posn loc) {
