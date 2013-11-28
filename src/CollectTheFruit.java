@@ -1,5 +1,4 @@
 import java.awt.Color;
-
 import javalib.soundworld.World;
 import javalib.colors.*;
 import javalib.worldimages.FromFileImage;
@@ -46,8 +45,8 @@ public class CollectTheFruit extends World {
     //If no powerup is hit, then returns -1
     int hitPowerup() {
         for(int i = 0; i < this.field.pUps.size(); i++) {
-            if(Math.abs(this.player.loc.x - this.field.pUps.get(i).loc.x) < 30 &&
-               Math.abs(this.player.loc.y - this.field.pUps.get(i).loc.y) < 30) {
+            if(Math.abs(this.player.loc.x - this.field.pUps.get(i).loc.x) < 15 &&
+               Math.abs(this.player.loc.y - this.field.pUps.get(i).loc.y) < 15) {
                 return i;
             }
         }
@@ -144,17 +143,26 @@ public class CollectTheFruit extends World {
     
     //Determine the conditions to end the game
     public WorldEnd worldEnds() {
+        WorldImage endImage = new FromFileImage(
+                new Posn(
+                        CollectTheFruit.width / 2, 
+                        CollectTheFruit.height / 2),
+                "sky.png");
         if(this.player.isDead()) {
-            return new WorldEnd(true, new TextImage(
-                    new Posn(CollectTheFruit.width / 2, CollectTheFruit.height / 2),
-                    "YOU LOOSE",
-                    new Black()));
+            endImage = endImage.overlayImages(
+                    new TextImage(
+                            new Posn(CollectTheFruit.width / 2, CollectTheFruit.height / 2),
+                            "YOU LOOSE",
+                            new Black()));
+            return new WorldEnd(true, endImage);
         }
         if(this.player.hasWon()) {
-            return new WorldEnd(true, new TextImage(
-                    new Posn(CollectTheFruit.width / 2, CollectTheFruit.height / 2),
-                    "YOU WIN!!!",
-                    new Black()));
+            endImage = endImage.overlayImages(
+                    new TextImage(
+                            new Posn(CollectTheFruit.width / 2, CollectTheFruit.height / 2),
+                            "YOU WIN!!!",
+                            new Black()));
+            return new WorldEnd(true, endImage);
         }
         return new WorldEnd(false, makeImage());
     }
