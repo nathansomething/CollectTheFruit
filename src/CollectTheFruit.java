@@ -19,6 +19,7 @@ public class CollectTheFruit extends World {
     int pushForce;
     boolean isJumping;
     int numTicks; //Resets at 10000
+    static final int powerupsPerScreen = 25;
     
     CollectTheFruit(Player player, Field field) {
         this.player = player;
@@ -92,7 +93,7 @@ public class CollectTheFruit extends World {
         if(this.player.loc.x > CollectTheFruit.width) {
             this.player.loc.x %= CollectTheFruit.width;
             this.field.pUps.clear();
-            this.field.generatePowerups(10);
+            this.field.generatePowerups(CollectTheFruit.powerupsPerScreen);
         }
         
         //Move all powerups on the screen

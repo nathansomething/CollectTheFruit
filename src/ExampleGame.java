@@ -21,22 +21,22 @@ public class ExampleGame {
     Posn p6 = new Posn(600, 20);
     
     //Example Powerups
-    Powerup a1 = new Avocado(p1);
+    /*Powerup a1 = new Avocado(p1);
     Powerup b1 = new Banana(p2);
     Powerup c1 = new Cookie(p3);
     Powerup d1 = new Donut(p4);
-    Powerup t1 = new Twinkie(p5);
+    Powerup t1 = new Twinkie(p5);*/
     
     //Example ArrayList<Powerup>s 
-    ArrayList<Powerup> list1 = new ArrayList<Powerup>(Arrays.asList(a1, b1, c1)); 
+    /*ArrayList<Powerup> list1 = new ArrayList<Powerup>(Arrays.asList(a1, b1, c1)); 
     ArrayList<Powerup> list2 = new ArrayList<Powerup>(Arrays.asList(b1, c1, t1)); 
-    ArrayList<Powerup> list3 = new ArrayList<Powerup>(Arrays.asList(d1, c1, a1, b1, t1)); 
+    ArrayList<Powerup> list3 = new ArrayList<Powerup>(Arrays.asList(d1, c1, a1, b1, t1)); */
     
     //Example Fields
-    Field field0 = new Field();
+    /*Field field0 = new Field();
     Field field1 = new Field(list1);
     Field field2 = new Field(list2);
-    Field field3 = new Field(list3);
+    Field field3 = new Field(list3);*/
     
     //Example Players
     Player player1 = new Player();
@@ -48,13 +48,13 @@ public class ExampleGame {
 
 
     //Example CollectTheFruit
-    CollectTheFruit ctf1 = new CollectTheFruit(player1, field1);
+    /*CollectTheFruit ctf1 = new CollectTheFruit(player1, field1);
     CollectTheFruit ctf2 = new CollectTheFruit();
     CollectTheFruit ctf3 = new CollectTheFruit();
     CollectTheFruit ctf4 = new CollectTheFruit(player3, field1);
     CollectTheFruit ctf5 = new CollectTheFruit(player4, field1);
     CollectTheFruit ctf6 = new CollectTheFruit(player5, field3);
-    CollectTheFruit ctf7 = new CollectTheFruit(player6, field2);
+    CollectTheFruit ctf7 = new CollectTheFruit(player6, field2);*/
     //Game Runner Class
     GameRunner gameRunner = new GameRunner();
     
@@ -108,14 +108,14 @@ public class ExampleGame {
     }
     
     //Test the updateStatus method
-    void testUpdateStatus(Tester t) {
+    /*void testUpdateStatus(Tester t) {
         this.resetPlayer();
         player.updateStats(new Avocado(defaultPos));
         t.checkExpect(player, new Player(91, 7, 1000, defaultPos));
         this.resetPlayer();
         player.updateStats(new Twinkie(defaultPos));
         t.checkExpect(player, new Player(73, 3, 1, defaultPos));
-    }
+    }*/
     
     //Test the move method
     void testMove(Tester t) {
@@ -128,13 +128,13 @@ public class ExampleGame {
     }
     
     //Test the offScreen method
-    void testOffScreen(Tester t) {
+    /*void testOffScreen(Tester t) {
         t.checkExpect(new Default(new Posn(-50, 0)).isOffScreen(), true);
         t.checkExpect(new Default(new Posn(1200, 0)).isOffScreen(), true);
         t.checkExpect(new Default(new Posn(0, -20)).isOffScreen(), true);
         t.checkExpect(new Default(new Posn(0, 500)).isOffScreen(), true);
         t.checkExpect(new Default(new Posn(50, 50)).isOffScreen(), false);
-    }
+    }*/
     
     //Test the nearX method
     void testNearX(Tester t) {
