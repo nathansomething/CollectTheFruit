@@ -19,7 +19,7 @@ public class CollectTheFruit extends World {
     int pushForce;
     boolean isJumping;
     int numTicks; //Resets at 10000
-    static final int powerupsPerScreen = 25;
+    static final int powerupsPerScreen = 8;
     
     CollectTheFruit(Player player, Field field) {
         this.player = player;
@@ -56,13 +56,15 @@ public class CollectTheFruit extends World {
     
     void jump() {
         if(this.currentJumpTicks > 0) {
-            if(this.currentJumpTicks > this.totalJumpTicks / 2) {
-                this.player.move(0, -this.pushForce);
-            }
-            else {
-                this.player.move(0, this.pushForce);
-            }
-            this.currentJumpTicks--;
+            //if(this.numTicks % 3 == 0) {
+                if(this.currentJumpTicks > this.totalJumpTicks / 2) {
+                    this.player.move(0, -this.pushForce);
+                }
+                else {
+                    this.player.move(0, this.pushForce);
+                }
+                this.currentJumpTicks--;
+            //}
         }
         else {
             this.totalJumpTicks = 0;
@@ -80,20 +82,23 @@ public class CollectTheFruit extends World {
     
     //Change the game on tick
     public void onTick() {
+        numTicks++;
         //Check to see if player hit a powerup
         int powerupIndex = hitPowerup();
         if(powerupIndex != -1) {
             player.updateStats(this.field.pUps.get(powerupIndex));
             this.field.pUps.remove(powerupIndex);
         }
-        
+       
         //Move player at a constant speed. 
         //Make sure he doesn't fall off the screen
-        player.move(this.player.speed, 0);
-        if(this.player.loc.x > CollectTheFruit.width) {
-            this.player.loc.x %= CollectTheFruit.width;
-            this.field.pUps.clear();
-            this.field.generatePowerups(CollectTheFruit.powerupsPerScreen);
+        if(numTicks % 2 == 0) {
+            player.move((int)this.player.speed, 0);
+            if(this.player.loc.x > CollectTheFruit.width) {
+                this.player.loc.x %= CollectTheFruit.width;
+                this.field.pUps.clear();
+                this.field.generatePowerups(CollectTheFruit.powerupsPerScreen);
+            }
         }
         
         //Move all powerups on the screen
@@ -111,6 +116,11 @@ public class CollectTheFruit extends World {
         
         //Remove Powerups on the Screen that are behind the player
         //this.removePups(this.player.loc.x - 50);
+        
+        //Reset the tick counter
+        if(numTicks > 10000) {
+            numTicks = 0;
+        }
     }
     
     //Change the game on key event
@@ -134,11 +144,11 @@ public class CollectTheFruit extends World {
             worldImage = worldImage.overlayImages(p.image);
         }
         worldImage = worldImage.overlayImages(
-                new TextImage(new Posn(CollectTheFruit.width - 100, 50), "Hunger: " + this.player.hunger, Color.black));
+                new TextImage(new Posn(CollectTheFruit.width - 100, 50), "Hunger: " + (int)this.player.hunger, Color.black));
         worldImage = worldImage.overlayImages(
-                new TextImage(new Posn(CollectTheFruit.width - 100, 70), "Speed: " + this.player.speed, Color.black));
+                new TextImage(new Posn(CollectTheFruit.width - 100, 70), "Speed: " + (int)this.player.speed, Color.black));
         worldImage = worldImage.overlayImages(
-                new TextImage(new Posn(CollectTheFruit.width - 100, 90), "Score: " + this.player.score, Color.black));
+                new TextImage(new Posn(CollectTheFruit.width - 100, 90), "Score: " + (int)this.player.score, Color.black));
         return worldImage;
     }
     

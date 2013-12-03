@@ -6,14 +6,13 @@ import javalib.worldimages.Posn;
 
 
 public class Player {
-    int hunger; //from 0 to 500
-    int speed; //from 0 to 10
+    float hunger; //from 0 to 500
+    float speed; //from 0 to 10
     int score; //Get points for every fruit, loose points for every sweet
-    int level; //Just based directly on your score
     Posn loc;
     FromFileImage playerImage;
     
-    final int maxHunger = 500;
+    final int maxHunger = 1000;
     final int maxSpeed = 10;
     
     Player(int hunger, int speed, int score, Posn loc) {
@@ -40,7 +39,7 @@ public class Player {
     
     //determine if the player has won
     boolean hasWon() {
-        return this.score >= 10000;
+        return this.score >= 100000;
     }
     
     //changes the hunger of the player by the given amount
@@ -77,6 +76,9 @@ public class Player {
     //changes the score of the player by the given amount
     void changeScore(int scoreDelta) {
         this.score += scoreDelta;
+        if(this.score < 0) {
+            this.score = 0;
+        }
     }
     
     //Update the stats of the player with the given powerup
@@ -86,20 +88,11 @@ public class Player {
         this.changeScore(powerup.points);
     }
     
-    //Compute the level based on the player's score
-    int getLevel() {
-        return this.score / 1000;
-    }
-    
     //Changes a players location
     void move(int deltaXLoc, int deltaYloc) {
         this.loc.x += deltaXLoc;
         this.loc.y += deltaYloc;
         this.playerImage.pinhole = this.loc;
-    }
-    
-    int getX() {
-        return this.loc.x;
     }
     
 }

@@ -19,7 +19,7 @@ public class GameRunner {
      * Method that runs the game
      */
     void run() {
-        this.ctf.bigBang(CollectTheFruit.width, CollectTheFruit.height, 0.1);
+        this.ctf.bigBang(CollectTheFruit.width, CollectTheFruit.height, 0.05);
     }
     
     /**

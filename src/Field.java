@@ -10,67 +10,103 @@ public class Field {
     ArrayList<String> ImageLocationArray = new ArrayList<String>();
     
     void makeAvocado() {
-        this.hungerDeltaPcrntArray.add(0.7f);
-        this.SpeedDeltaPcrntArray.add(0.4f);
-        this.pointsDeltaArray.add(1000);
+        this.hungerDeltaPcrntArray.add(0.17f);
+        this.SpeedDeltaPcrntArray.add(0.50f);
+        this.pointsDeltaArray.add(600);
         this.ImageLocationArray.add("avocado.png");
     }
     
+    void makeMeat() {
+        this.hungerDeltaPcrntArray.add(0.55f);
+        this.SpeedDeltaPcrntArray.add(0.10f);
+        this.pointsDeltaArray.add(550);
+        this.ImageLocationArray.add("meat.png");
+    }
+    
+    void makeBroccoli() {
+        this.hungerDeltaPcrntArray.add(0.07f);
+        this.SpeedDeltaPcrntArray.add(0.05f);
+        this.pointsDeltaArray.add(1400);
+        this.ImageLocationArray.add("broccoli.png");
+    }
+    
     void makeBanana() {
-        this.hungerDeltaPcrntArray.add(0.4f);
-        this.SpeedDeltaPcrntArray.add(0.25f);
-        this.pointsDeltaArray.add(200);
-        this.ImageLocationArray.add("banana.png");
+        this.hungerDeltaPcrntArray.add(0.22f);
+        this.SpeedDeltaPcrntArray.add(0.15f);
+        this.pointsDeltaArray.add(250);
+        this.ImageLocationArray.add("broccoli.png");
     }
     
     void makeGrape() {
-        this.hungerDeltaPcrntArray.add(0.15f);
-        this.SpeedDeltaPcrntArray.add(0.05f);
-        this.pointsDeltaArray.add(50);
+        this.hungerDeltaPcrntArray.add(0.08f);
+        this.SpeedDeltaPcrntArray.add(0.10f);
+        this.pointsDeltaArray.add(75);
         this.ImageLocationArray.add("grape.png");
     }
     
     void makeCookie() {
-        this.hungerDeltaPcrntArray.add(0.01f);
-        this.SpeedDeltaPcrntArray.add(-0.1f);
-        this.pointsDeltaArray.add(10);
+        this.hungerDeltaPcrntArray.add(0.03f);
+        this.SpeedDeltaPcrntArray.add(-0.10f);
+        this.pointsDeltaArray.add(30);
         this.ImageLocationArray.add("cookie.png");
     }
     
     void makeDonut() {
-        this.hungerDeltaPcrntArray.add(0.01f);
-        this.SpeedDeltaPcrntArray.add(-0.2f);
-        this.pointsDeltaArray.add(5);
+        this.hungerDeltaPcrntArray.add(-0.15f);
+        this.SpeedDeltaPcrntArray.add(-0.1f);
+        this.pointsDeltaArray.add(10);
         this.ImageLocationArray.add("donut.png");
     }
     
+    void makeFries() {
+        this.hungerDeltaPcrntArray.add(0.11f);
+        this.SpeedDeltaPcrntArray.add(-0.25f);
+        this.pointsDeltaArray.add(20);
+        this.ImageLocationArray.add("fries.png");
+    }
+    
+    void makeChocolate() {
+        this.hungerDeltaPcrntArray.add(0.05f);
+        this.SpeedDeltaPcrntArray.add(-0.2f);
+        this.pointsDeltaArray.add(5);
+        this.ImageLocationArray.add("chocolate.png");
+    }
+    
     void makeTwinkie() {
-        this.hungerDeltaPcrntArray.add(0.01f);
+        this.hungerDeltaPcrntArray.add(-0.1f);
         this.SpeedDeltaPcrntArray.add(-0.35f);
-        this.pointsDeltaArray.add(1);
+        this.pointsDeltaArray.add(-100);
         this.ImageLocationArray.add("twinkie.png");
     }
     
     ArrayList<Powerup> pUps;
-    final int numPups = 6;
+    final int numPups = 10;
     
     //For testing purposes only
     Field(ArrayList<Powerup> pUps) {
         makeAvocado();
+        makeMeat();
+        makeBroccoli();
         makeBanana();
         makeGrape();
         makeCookie();
         makeDonut();
+        makeFries();
+        makeChocolate();
         makeTwinkie();
         this.pUps = pUps;
     }
     
     Field() {
         makeAvocado();
+        makeMeat();
+        makeBroccoli();
         makeBanana();
         makeGrape();
         makeCookie();
         makeDonut();
+        makeFries();
+        makeChocolate();
         makeTwinkie();
         this.pUps = new ArrayList<Powerup>();
         this.generatePowerups(CollectTheFruit.powerupsPerScreen);
