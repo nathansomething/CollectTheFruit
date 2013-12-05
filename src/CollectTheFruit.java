@@ -1,5 +1,5 @@
 import java.awt.Color;
-import javalib.soundworld.World;
+import javalib.appletworld.World;
 import javalib.colors.*;
 import javalib.worldimages.FromFileImage;
 import javalib.worldimages.Posn;
@@ -78,6 +78,7 @@ public class CollectTheFruit extends World {
         }
     }
     
+    //Remove all powerups from the screen
     void removePups(int xBounds) {
         for (int i = 0; i < this.field.pUps.size(); i++) {
             if (this.field.pUps.get(i).loc.x < xBounds) {
@@ -86,7 +87,8 @@ public class CollectTheFruit extends World {
         }
     }
     
-    //Change the game on tick
+    //Execute onTick functions. 
+    //Move player, check to see if powerup has been it, update stats
     public void onTick() {
         numTicks++;
         //Check to see if player hit a powerup
@@ -107,11 +109,6 @@ public class CollectTheFruit extends World {
             }
         }
         
-        //Move all powerups on the screen
-        //for(Powerup p : this.field.pUps) {
-          //  p.move(5, 0);
-        //}
-        
         //If Player has been set to jump, jump!
         if (this.isJumping) {
             this.jump();
@@ -119,9 +116,6 @@ public class CollectTheFruit extends World {
         
         //Decrees Hunger Bar
         this.player.changeHunger(-1);
-        
-        //Remove Powerups on the Screen that are behind the player
-        //this.removePups(this.player.loc.x - 50);
         
         //Reset the tick counter
         if (numTicks > 10000) {

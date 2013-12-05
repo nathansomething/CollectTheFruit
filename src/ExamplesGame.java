@@ -145,13 +145,61 @@ public class ExamplesGame {
     }
     
     //test the generatePowerups method
-    void testGeneratePowerups(Tester t) {
+    /*void testGeneratePowerups(Tester t) {
         field.generatePowerups(0);
         t.checkExpect(field.pUps, new ArrayList<Powerup>());
+        resetField();
+        field.generatePowerups(1);
+        t.checkOneOf(field, 
+                new Field(new ArrayList<Powerup>(Arrays.asList(avocado))), 
+                new Field(new ArrayList<Powerup>(Arrays.asList(twinkie))));
+        resetField();
+        field.generatePowerups(2);
+        t.checkOneOf(field.pUps, 
+                new ArrayList<Powerup>(Arrays.asList(avocado, avocado)), 
+                new ArrayList<Powerup>(Arrays.asList(avocado, twinkie)),
+                new ArrayList<Powerup>(Arrays.asList(twinkie, avocado)), 
+                new ArrayList<Powerup>(Arrays.asList(twinkie, twinkie)));
+    }*/
+    
+    /********************TEST THE COLLCTHEFRUIT CLASS!!!*******************/
+    
+    //test the hitPowerup method
+    void testHitPowerup(Tester t) {
+        t.checkExpect(ctf.hitPowerup(), -1);
+        ctf.field.addPowerup(0, CollectTheFruit.height - 30);
+        t.checkExpect(ctf.hitPowerup(), 0);
+    }
+    
+    //test the removePowerups method
+    void removePowerups(Tester t) {
+        ctf.removePups(0);
+        t.checkExpect(ctf.field.pUps, new ArrayList<Powerup>());
     }
     
     
-    //test the 
+    //test the onTick method
+    void testOnTick(Tester t) {
+        ctf.onTick();
+        t.checkExpect(ctf.player.loc, new Posn(6, CollectTheFruit.height - 30));
+    }
+    
+    /*/test the onKeyEvent method
+    void testOnKeyEvent(Tester t) {
+        
+    }
+    
+    //test the makeImage method
+    void testMakeImage() {
+        
+    }
+    
+    //test the worldEnd method
+    void testWorldEnd() {
+        
+    }*/
+    
+    
     // test for method onTick
     // test for method removePups
     /*void testRemovePups(Tester t) {
