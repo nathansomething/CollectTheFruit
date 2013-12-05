@@ -100,13 +100,11 @@ public class CollectTheFruit extends World {
        
         //Move player at a constant speed. 
         //Make sure he doesn't fall off the screen
-        if (numTicks % 2 == 0) {
-            player.move((int)this.player.speed, 0);
-            if (this.player.loc.x > CollectTheFruit.width) {
-                this.player.loc.x %= CollectTheFruit.width;
-                this.field.pUps.clear();
-                this.field.generatePowerups(CollectTheFruit.powerupsPerScreen);
-            }
+        player.move((int)this.player.speed, 0);
+        if (this.player.loc.x > CollectTheFruit.width) {
+            this.player.loc.x %= CollectTheFruit.width;
+            this.field.pUps.clear();
+            this.field.generatePowerups(CollectTheFruit.powerupsPerScreen);
         }
         
         //If Player has been set to jump, jump!
@@ -116,11 +114,6 @@ public class CollectTheFruit extends World {
         
         //Decrees Hunger Bar
         this.player.changeHunger(-1);
-        
-        //Reset the tick counter
-        if (numTicks > 10000) {
-            numTicks = 0;
-        }
     }
     
     //Change the game on key event
