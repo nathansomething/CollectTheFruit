@@ -17,7 +17,7 @@ public class Field {
         this.ImageLocationArray.add("avocado.png");
     }
     
-    void makeMeat() {
+    /*void makeMeat() {
         this.hungerDeltaPcrntArray.add(0.55f);
         this.SpeedDeltaPcrntArray.add(0.10f);
         this.pointsDeltaArray.add(550);
@@ -71,7 +71,7 @@ public class Field {
         this.SpeedDeltaPcrntArray.add(-0.2f);
         this.pointsDeltaArray.add(5);
         this.ImageLocationArray.add("chocolate.png");
-    }
+    }*/
     
     void makeTwinkie() {
         this.hungerDeltaPcrntArray.add(-0.1f);
@@ -81,56 +81,46 @@ public class Field {
     }
     
     ArrayList<Powerup> pUps;
-    final int numPups = 10;
+    final int numPups = 2;
     
     //For testing purposes only
     Field(ArrayList<Powerup> pUps) {
         makeAvocado();
-        makeMeat();
+        /*makeMeat();
         makeBroccoli();
         makeBanana();
         makeGrape();
         makeCookie();
         makeDonut();
         makeFries();
-        makeChocolate();
+        makeChocolate();*/
         makeTwinkie();
         this.pUps = pUps;
     }
     
     Field() {
         makeAvocado();
-        makeMeat();
+        /*makeMeat();
         makeBroccoli();
         makeBanana();
         makeGrape();
         makeCookie();
         makeDonut();
         makeFries();
-        makeChocolate();
+        makeChocolate();*/
         makeTwinkie();
         this.pUps = new ArrayList<Powerup>();
-        this.generatePowerups(CollectTheFruit.powerupsPerScreen);
+        //this.generatePowerups(CollectTheFruit.powerupsPerScreen);
     }
     
-    //Returns a random y position which determines if a powerup will be in the bottom row or on top
+    //Returns a random y position which determines if a 
+    //powerup will be in the bottom row or on top
     int getYPos() {
-        if(new Random().nextBoolean()) {
+        if (new Random().nextBoolean()) {
             return CollectTheFruit.height - 35;
         }
         else {
             return CollectTheFruit.height - 200;
-        }
-    }
-    
-    //Whenever the screen gets refreshed, add a new set of powerups
-    public void generatePowerups(int number) {
-        for(int i = 0; i < number; i++) {
-            int spaceBetweenPowerups = CollectTheFruit.width / number;
-            if(i != 0) {
-              //Don't add a powerup at the edge of the screen
-              this.addPowerup(i * spaceBetweenPowerups, getYPos());
-            }
         }
     }
     
@@ -144,7 +134,19 @@ public class Field {
                 this.SpeedDeltaPcrntArray.get(powerupIndex),
                 this.pointsDeltaArray.get(powerupIndex),
                 loc,
-                new FromFileImage(loc, this.ImageLocationArray.get(powerupIndex))));
+                new FromFileImage(
+                        loc, this.ImageLocationArray.get(powerupIndex))));
+    }
+    
+    //Whenever the screen gets refreshed, add a new set of powerups
+    public void generatePowerups(int number) {
+        for (int i = 0; i < number; i++) {
+            int spaceBetweenPowerups = CollectTheFruit.width / number;
+            if (i != 0) {
+              //Don't add a powerup at the edge of the screen
+              this.addPowerup(i * spaceBetweenPowerups, getYPos());
+            }
+        }
     }
     
 }
