@@ -50,9 +50,9 @@ public class CollectTheFruit extends World {
     //If no powerup is hit, then returns -1
     int hitPowerup() {
         for (int i = 0; i < this.field.pUps.size(); i++) {
-            if (Math.abs(
+            if (Math.abs (
                     this.player.loc.x - this.field.pUps.get(i).loc.x) < 15 &&
-               Math.abs(
+               Math.abs (
                        this.player.loc.y - this.field.pUps.get(i).loc.y) < 15)
             {
                 return i;

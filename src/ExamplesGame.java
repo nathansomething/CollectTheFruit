@@ -28,17 +28,6 @@ public class ExamplesGame {
     // example CollectTheFruits
     CollectTheFruit ctf = new CollectTheFruit();
 
-    // Game Runner Class
-    GameRunner gameRunner = new GameRunner();
-    // Example WorldEnd
-    //WorldEnd loose = new WorldEnd(true, new TextImage(new Posn(800 / 2, 250 / 2),
-    //        "YOU LOSE", new Black()));
-    //WorldEnd win = new WorldEnd(true, new TextImage(new Posn(800 / 2, 250 / 2),
-    //        "YOU LOSE", new Black()));
-    
-    // example starting position for a new player
-    Posn defaultPos = new Posn(0, 320);
-
     // reset method for a new player
     void resetPlayer() {
         this.player = new Player();
@@ -112,10 +101,12 @@ public class ExamplesGame {
     //test the updateStats method
     void testUpdateStats(Tester t) {
         player.updateStats(avocado);
-        t.checkExpect(player, new Player(751f, 7.7f, 600, new Posn(0, CollectTheFruit.height - 30)));
+        t.checkExpect(player, new Player(751f, 7.7f, 600, 
+                new Posn(0, CollectTheFruit.height - 30)));
         resetPlayer();
         player.updateStats(twinkie);
-        t.checkExpect(player, new Player(630f, 3.9f, 0, new Posn(0, CollectTheFruit.height - 30)));
+        t.checkExpect(player, new Player(630f, 3.9f, 0, 
+                new Posn(0, CollectTheFruit.height - 30)));
     }
     
     //test the move method
@@ -182,7 +173,8 @@ public class ExamplesGame {
     void testOnTick(Tester t) {
         resetCTF();
         ctf.onTick();
-        t.checkExpect(ctf.player.loc, new Posn(6, CollectTheFruit.height - 30));
+        t.checkExpect(ctf.player.loc, 
+                new Posn(6, CollectTheFruit.height - 30));
     }
     
     //test the onKeyEvent method

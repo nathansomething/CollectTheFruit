@@ -2,7 +2,8 @@ import java.util.*;
 import javalib.worldimages.FromFileImage;
 import javalib.worldimages.Posn;
 
-//Stores and manages the powerups on the field and takes care of any other properties on the field
+//Stores and manages the powerups on the field and takes care 
+//of any other properties on the field
 public class Field {
     ArrayList<Float> hungerDeltaPcrntArray = new ArrayList<Float>();
     ArrayList<Float> SpeedDeltaPcrntArray = new ArrayList<Float>();

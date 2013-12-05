@@ -25,7 +25,9 @@ public class Player {
         this.speed = speed;
         this.score = score;
         this.loc = loc;
-        this.playerImage = new CircleImage(new Posn(500, 500), 10, Color.black);//new FromFileImage(this.loc, "wizard_pengiun.png");
+        this.playerImage = 
+                new CircleImage(new Posn(500, 500), 10, Color.black);
+        //new FromFileImage(this.loc, "wizard_pengiun.png");
     }
     
     Player() {
@@ -34,7 +36,9 @@ public class Player {
         this.speed = 6f;
         this.score = 0;
         this.loc = new Posn(0, CollectTheFruit.height - 30);
-        this.playerImage = new CircleImage(new Posn(500, 500), 10, Color.black);//new FromFileImage(this.loc, "wizard_penguin.png");
+        this.playerImage = 
+                new CircleImage(new Posn(500, 500), 10, Color.black);
+        //new FromFileImage(this.loc, "wizard_penguin.png");
     }
     
     //determine if the player is dead
