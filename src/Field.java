@@ -1,14 +1,15 @@
 import java.util.*;
-
 import javalib.worldimages.FromFileImage;
 import javalib.worldimages.Posn;
 
+//Stores and manages the powerups on the field and takes care of any other properties on the field
 public class Field {
     ArrayList<Float> hungerDeltaPcrntArray = new ArrayList<Float>();
     ArrayList<Float> SpeedDeltaPcrntArray = new ArrayList<Float>();
     ArrayList<Integer> pointsDeltaArray = new ArrayList<Integer>();
     ArrayList<String> ImageLocationArray = new ArrayList<String>();
     
+    //make all the powerup arrays
     void makeAvocado() {
         this.hungerDeltaPcrntArray.add(0.17f);
         this.SpeedDeltaPcrntArray.add(0.50f);
@@ -112,6 +113,7 @@ public class Field {
         this.generatePowerups(CollectTheFruit.powerupsPerScreen);
     }
     
+    //Returns a random y position which determines if a powerup will be in the bottom row or on top
     int getYPos() {
         if(new Random().nextBoolean()) {
             return CollectTheFruit.height - 35;
@@ -121,6 +123,7 @@ public class Field {
         }
     }
     
+    //Whenever the screen gets refreshed, add a new set of powerups
     public void generatePowerups(int number) {
         for(int i = 0; i < number; i++) {
             int spaceBetweenPowerups = CollectTheFruit.width / number;
@@ -131,6 +134,8 @@ public class Field {
         }
     }
     
+    //Add a new powerup to the ArrayList pUps, 
+    //which stores the current powerups on screen
     void addPowerup(int xPos, int yPos) {
         int powerupIndex = new Random().nextInt(this.numPups);
         Posn loc = new Posn(xPos, yPos);

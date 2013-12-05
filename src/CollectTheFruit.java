@@ -8,7 +8,8 @@ import javalib.worldimages.TextImage;
 import javalib.worldimages.WorldEnd;
 import javalib.worldimages.WorldImage;
 
-
+//Represent an instance of the entire game. Controls high level functions (interactions between the player and the field) 
+//as well as world functions (update the game on tick, draw the game, end the game, etc)
 public class CollectTheFruit extends World {
     Player player;
     Field field;

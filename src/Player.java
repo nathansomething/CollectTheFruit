@@ -42,7 +42,7 @@ public class Player {
         return this.score >= 100000;
     }
     
-    //changes the hunger of the player by the given amount
+    //changes the hunger of the player by the given *percent*
     //(posative values increase hunger, negative decresases)
     void changeHunger(float hungerDelta) {
         if(hungerDelta > 0) {
@@ -55,6 +55,8 @@ public class Player {
             this.hunger = 0;
         }
     }
+    
+    //Change the hunger of the player by the given number
     void changeHunger(int hungerDelta) {
         this.hunger += hungerDelta;
         if(this.hunger < 0) {
@@ -62,7 +64,7 @@ public class Player {
         }
     }
     
-    //changes the speed of the player by the given amount
+    //changes the speed of the player by the given amount ra
     //(negative values decrease speed)
     void changeSpeed(float speedDelta) {
         if(speedDelta > 0) {
