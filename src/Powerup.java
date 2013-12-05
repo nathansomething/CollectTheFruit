@@ -14,16 +14,15 @@ public class Powerup {
     int points;
     Posn loc;
     FromFileImage image;
-    
-    //Create a new powerup with the given stats
-    Powerup(float hungerDeltaPrcnt, float speedDeltaPrcnt,
-            int points, Posn loc, FromFileImage image) { 
-       this.hungerDeltaPrcnt = hungerDeltaPrcnt;
-       this.speedDeltaPrcnt = speedDeltaPrcnt;
-       this.points = points;
-       this.loc = loc;
-       this.image = image;
-    }
-    
-}
 
+    // Create a new powerup with the given stats
+    Powerup(float hungerDeltaPrcnt, float speedDeltaPrcnt, int points,
+            Posn loc, FromFileImage image) {
+        this.hungerDeltaPrcnt = hungerDeltaPrcnt;
+        this.speedDeltaPrcnt = speedDeltaPrcnt;
+        this.points = points;
+        this.loc = loc;
+        this.image = image;
+    }
+
+}
